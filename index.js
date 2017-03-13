@@ -36,15 +36,15 @@ var getUserInput = function() {
     //check to see if user has won
     if(checkBoard() === true) {
       rl.write('Player ' + player + ' wins');
-      return
+      process.exit();
     } else {
-      getUserInput();
+        //switch to second users turn
+        if(player === 'x') {
+          player = 'o';
+        } else {
+          player = 'x';
     }
-    //switch to second users turn
-    if(player === 'x') {
-      player = 'o';
-    } else {
-      player = 'x';
+      getUserInput();
     }
   })
 }
